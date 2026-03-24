@@ -40,14 +40,6 @@ O cliente pode enviar qualquer um desses comandos ao servidor, que executa a ope
 
 ---
 
-## Estrutura do Projeto
-
-* `server.py`: implementação do servidor
-* `client.py`: implementação do cliente
-* `constCS.py`: definição de HOST e PORT
-
----
-
 ## Protocolo de Comunicação
 
 A comunicação entre cliente e servidor segue um protocolo baseado em texto:
@@ -80,10 +72,7 @@ resultado | tempo servidor: X.XXXXXXs
 
 ## Medição de Tempo
 
-O sistema mede dois tipos de tempo:
-
-* Tempo de processamento no servidor
-* Tempo total no cliente (incluindo rede)
+O sistema mede o tempo de processamento no servidor e o tempo total no cliente (incluindo rede)
 
 ---
 
