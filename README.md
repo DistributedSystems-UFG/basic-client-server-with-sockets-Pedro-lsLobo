@@ -8,3 +8,90 @@ Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste
 Tarefa individual.
 
 Incluir um Readme descritivo do sistema implementado.
+
+---
+
+## Funcionamento
+
+O sistema segue o modelo cliente-servidor:
+
+* O servidor permanece em execução aguardando conexões.
+* O cliente se conecta ao servidor e envia requisições.
+* O servidor processa os dados recebidos e retorna uma resposta.
+
+A comunicação ocorre via sockets TCP.
+
+---
+
+## Funcionalidades
+
+O servidor implementa as seguintes operações:
+
+| Comando | Descrição               | Exemplo  |
+| ------- | ----------------------- | -------- |
+| ADD     | Soma dois números       | ADD 2 3  |
+| SUB     | Subtrai dois números    | SUB 5 2  |
+| MUL     | Multiplica dois números | MUL 3 4  |
+| DIV     | Divide dois números     | DIV 10 2 |
+| POW     | Potência                | POW 2 3  |
+| SQRT    | Raiz quadrada           | SQRT 16  |
+
+O cliente pode enviar qualquer um desses comandos ao servidor, que executa a operação correspondente e retorna o resultado.
+
+---
+
+## Estrutura do Projeto
+
+* `server.py`: implementação do servidor
+* `client.py`: implementação do cliente
+* `constCS.py`: definição de HOST e PORT
+
+---
+
+## Protocolo de Comunicação
+
+A comunicação entre cliente e servidor segue um protocolo baseado em texto:
+
+Formato da requisição:
+
+```
+OPERACAO valor1 valor2
+```
+
+Exemplo:
+
+```
+ADD 10 5
+```
+
+Para operações com um único operando:
+
+```
+SQRT 16
+```
+
+O servidor responde com:
+
+```
+resultado | tempo servidor: X.XXXXXXs
+```
+
+---
+
+## Medição de Tempo
+
+O sistema mede dois tipos de tempo:
+
+* Tempo de processamento no servidor
+* Tempo total no cliente (incluindo rede)
+
+---
+
+## Tratamento de Erros
+
+O servidor trata situações como:
+
+* Comandos inválidos
+* Número incorreto de argumentos
+* Divisão por zero
+* Raiz de número negativo
